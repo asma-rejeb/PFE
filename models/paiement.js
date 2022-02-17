@@ -1,12 +1,12 @@
 const {Schema, model} = require("mongoose")
 
-const ficheInscriptionSchema = new Schema({
+const paiementSchema = new Schema({
     
-    typeFormation:{
-        type:String, required:true
+    montant:{
+        type:Number, required:true
     },
-    theme:{
-        type:String, required:true
+    reste:{
+        type:Number, required:true
     },
     date:{
         type:String, required:true
@@ -17,7 +17,7 @@ const ficheInscriptionSchema = new Schema({
         ref: 'Etudiant',
         trim: true
         // require: true
-      }
+      } //one paiement
 })
 
-module.exports = model("FicheInscription", ficheInscriptionSchema);
+module.exports = model("Paiement", paiementSchema);

@@ -6,6 +6,8 @@ const formateurRoute = require("./routes/formateurRoute");
 const formationRoute = require("./routes/formationRoute");
 const etudiantRoute = require("./routes/etudiantRoute");
 const groupeRoute = require("./routes/groupeRoute");
+const ficheInscriptionRoute = require("./routes/ficheInscriptionRoute");
+const paiementRoute = require("./routes/paiementRoute");
 
 const app = express();
 app.listen(3000, () => { 
@@ -18,3 +20,5 @@ app.use("/api/formateur", formateurRoute);
 app.use("/api/formation", formationRoute);
 app.use("/api/etudiant", etudiantRoute);    
 app.use("/api/groupe", groupeRoute);  
+app.use("/api/ficheInscription", ficheInscriptionRoute);
+app.use("/api/paiement", paiementRoute);

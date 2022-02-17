@@ -4,20 +4,19 @@ exports.saveFicheInscription = (req, res, next) => {
   
 
     const ficheInscription = new FicheInscription({
-      nom: req.body.nom,
-      niveauFormation: req.body.niveauFormation,
-      nbEtudiant: req.body.nbEtudiant,
+
       typeFormation: req.body.typeFormation,
-      
+      theme: req.body.theme,
+      date: req.body.date,      
     });
 
-    groupe
+    ficheInscription
     .save()
     .then(result => {
       console.log(result);
       res.status(200).json({
         status: true,
-        data: groupe,
+        data: ficheInscription,
     });
     })
     .catch(err => {
@@ -28,37 +27,37 @@ exports.saveFicheInscription = (req, res, next) => {
     });
 };
 
-  //getAll groupe 
+  //getAll ficheInscription 
   exports.getfindAll =  (req, res) => {
-    Groupe.find({}).populate("etudiant").exec(function(err, groupes) {
+    FicheInscription.find({}).populate("etudiant").exec(function(err, ficheInscriptions) {
       if (err) {
         console.error("erreur");
       } else {
         
-        res.json(groupes);
+        res.json(ficheInscriptions);
       }
     });
   }
 
   exports.getById = (req, res) => {
     //let productId = req.params.productId;
-    Groupe.findById({ _id: req.params.id })
-        .then((groupe) => {
-            res.status(200).send(groupe)
+    FicheInscription.findById({ _id: req.params.id })
+        .then((ficheInscription) => {
+            res.status(200).send(ficheInscription)
         })
         .catch((error) => { console.log(error) });
 }
 
 exports.update = (req,res) => {
-    Groupe.findOneAndUpdate({ _id: req.params.id }, { $set: req.body })
-          .then((groupe) => {
-              res.status(200).send(groupe)
+  FicheInscription.findOneAndUpdate({ _id: req.params.id }, { $set: req.body })
+          .then((ficheInscription) => {
+              res.status(200).send(ficheInscription)
           })
           .catch((error) => { console.log(error) });
   }
 
   exports.delete = (req, res) => {
-    Groupe.findOneAndDelete({ _id: req.params.id })
+    FicheInscription.findOneAndDelete({ _id: req.params.id })
           .then((data) => {
               res.status(200).json("Deleted...")
           })

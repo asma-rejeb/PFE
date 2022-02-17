@@ -35,12 +35,12 @@ const etudiantSchema = new Schema({
         type:Boolean, required:true
     },
 
-    paiement: {
+    paiement: [{
         type: Schema.Types.ObjectId,
-        ref: 'aiement',
+        ref: 'Paiement',
         trim: true
         // require: true
-      }
+      }] //tableau pour many
 });
 
 module.exports = model("Etudiant", etudiantSchema);

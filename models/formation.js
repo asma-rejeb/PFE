@@ -52,3 +52,4 @@ const formationSchema = new Schema({
 })
 
 module.exports = model("Formation", formationSchema);
+

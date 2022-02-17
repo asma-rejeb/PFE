@@ -9,7 +9,7 @@ const paiementSchema = new Schema({
         type:Number, required:true
     },
     date:{
-        type:String, required:true
+        type:Date, required:true
     },
 
     etudiant: {
@@ -21,3 +21,5 @@ const paiementSchema = new Schema({
 })
 
 module.exports = model("Paiement", paiementSchema);
+
+

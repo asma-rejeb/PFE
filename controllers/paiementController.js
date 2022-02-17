@@ -1,5 +1,5 @@
 const Paiement =require("../models/paiement");
-
+const Etudiant = require("../models/etudiant")
 exports.savePaiement = (req, res, next) => {
   
 
@@ -55,3 +55,33 @@ exports.update = (req,res) => {
           })
           .catch((error) => { console.log(error) });
   }
+
+
+  exports.addPayementForStagiaire = (req,res,next) => {
+    const etudiantId =  req.params.id;
+    const payementObject =  req.body;
+    const newPayememnt = new Paiement(payementObject);
+  
+    Etudiant.findOne({ _id: etudiantId },  (err, foundEtudiant) => {
+      if (!foundEtudiant) {
+        return err;
+      }
+      foundEtudiant.paiement.push(newPayememnt);
+       newPayememnt.etudiant = foundEtudiant;
+       newPayememnt.save((error, savedPayement) => {
+        if (error) {
+          return error;
+        }
+        return res.json(savedPayement);
+      });
+      foundEtudiant.save((error, savedEtudiant) => {
+        if (error) {
+          return error;
+        }
+        return res.json(savedEtudiant); 
+      });
+      return foundEtudiant;
+    });
+        
+}
+

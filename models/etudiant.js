@@ -31,8 +31,9 @@ const etudiantSchema = new Schema({
     facebook:{
         type:String, required:true
     },
-    paiement:{
-        type:Boolean, required:true
+    pay:{
+        type:Boolean, 
+        default:false
     },
 
     paiement: [{

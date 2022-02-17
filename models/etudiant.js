@@ -40,7 +40,33 @@ const etudiantSchema = new Schema({
         ref: 'Paiement',
         trim: true
         // require: true
-      }] //tableau pour many
+      }], //table for many
+
+    formation: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Formation',
+        trim: true
+        // require: true
+      }],
+    groupe: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Groupe',
+        trim: true
+        // require: true
+      }],
+    ficheInscription: [{
+        type: Schema.Types.ObjectId,
+        ref: 'FicheInscription',
+        trim: true
+        // require: true
+      }],
+    ficheAppel: [{
+        type: Schema.Types.ObjectId,
+        ref: 'FicheAppel',
+        trim: true
+        // require: true
+      }]
+
 });
 
 module.exports = model("Etudiant", etudiantSchema);

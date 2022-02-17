@@ -5,11 +5,16 @@ const specialiteSchema = new Schema({
     designation:{
         type:String, required:true
     },
-    niveau:{
-        type:String, required:true
+    niv:{
+        niveau :{
+            type:String, required:true
+        },
+        sousNiveau :{
+            type:String, required:true
+        },
     },
 
-
+    
     formation: {
         type: Schema.Types.ObjectId,
         ref: 'Formation',

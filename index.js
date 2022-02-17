@@ -8,6 +8,7 @@ const etudiantRoute = require("./routes/etudiantRoute");
 const groupeRoute = require("./routes/groupeRoute");
 const ficheInscriptionRoute = require("./routes/ficheInscriptionRoute");
 const paiementRoute = require("./routes/paiementRoute");
+const specialiteRoute = require("./routes/specialiteRoute");
 
 const app = express();
 app.listen(3000, () => { 
@@ -22,3 +23,4 @@ app.use("/api/etudiant", etudiantRoute);
 app.use("/api/groupe", groupeRoute);  
 app.use("/api/ficheInscription", ficheInscriptionRoute);
 app.use("/api/paiement", paiementRoute);
+app.use("/api/specialite", specialiteRoute);

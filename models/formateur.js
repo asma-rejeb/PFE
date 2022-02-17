@@ -29,12 +29,12 @@ const formateurSchema = new Schema({
         type:String,
     },
 
-    formation: {
+    formation: [{
         type: Schema.Types.ObjectId,
         ref: 'Formation',
         trim: true
         // require: true
-      }
+      }]
 
 });
 module.exports = model("Formateur", formateurSchema);

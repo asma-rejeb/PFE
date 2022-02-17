@@ -36,12 +36,19 @@ const formationSchema = new Schema({
     nbrStagiaire:{
         type:Number, required:true
     },
+
     formateur: {
         type: Schema.Types.ObjectId,
         ref: 'Formateur',
         trim: true
         // require: true
-      }
+      },
+      specialite: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Specialite',
+        trim: true
+        // require: true
+      }]
 })
 
 module.exports = model("Formation", formationSchema);

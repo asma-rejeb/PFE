@@ -4,10 +4,9 @@ exports.savePaiement = (req, res, next) => {
   
 
     const paiement = new Paiement({
-      nom: req.body.nom,
-      niveauFormation: req.body.niveauFormation,
-      nbEtudiant: req.body.nbEtudiant,
-      typeFormation: req.body.typeFormation,
+      montant: req.body.montant,
+      reste: req.body.reste,
+      date: req.body.date,
       
     });
 

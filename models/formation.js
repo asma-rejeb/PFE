@@ -14,10 +14,10 @@ const formationSchema = new Schema({
         type:String, required:true
     },
     dateDebut:{
-        type:String, required:true
+        type:Date, required:true
     },
     dateFin:{
-        type:String, required:true
+        type:Date, required:true
     },
     horaire:{
         type:String, required:true
@@ -42,14 +42,14 @@ const formationSchema = new Schema({
         ref: 'Formateur',
         trim: true
         // require: true
-      },
-      specialite: [{
+      }
+     /* specialite: [{
         type: Schema.Types.ObjectId,
         ref: 'Specialite',
         trim: true
         // require: true
-      }]
-})
+      }]*/
+});
 
 module.exports = model("Formation", formationSchema);
 

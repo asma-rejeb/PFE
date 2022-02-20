@@ -5,7 +5,7 @@ exports.saveSpecialite = (req, res, next) => {
 
     const specialite = new Specialite({
       designation: req.body.designation,
-      niveau: req.body.niveau,
+      niv: req.body.niv,
      
     });
 

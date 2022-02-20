@@ -20,6 +20,6 @@ const groupeSchema = new Schema({
         trim: true
         // require: true
       }
-})
+});
 
 module.exports = model("Groupe", groupeSchema);

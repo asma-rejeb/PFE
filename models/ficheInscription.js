@@ -9,7 +9,7 @@ const ficheInscriptionSchema = new Schema({
         type:String, required:true
     },
     date:{
-        type:String, required:true
+        type:Date, required:true
     },
 
     etudiant: {
@@ -18,6 +18,7 @@ const ficheInscriptionSchema = new Schema({
         trim: true
         // require: true
       }
+      
 })
 
 module.exports = model("FicheInscription", ficheInscriptionSchema);

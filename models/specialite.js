@@ -5,7 +5,7 @@ const specialiteSchema = new Schema({
     designation:{
         type:String, required:true
     },
-    niv:{
+    niv: { 
         niveau :{
             type:String, required:true
         },
@@ -21,6 +21,6 @@ const specialiteSchema = new Schema({
         trim: true
         // require: true
       } 
-})
+});
 
 module.exports = model("Specialite", specialiteSchema);

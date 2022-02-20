@@ -1,4 +1,5 @@
 const Formateur =require("../models/formateur");
+const Formation = require("../models/formation");
 
 exports.saveFormateur = (req, res, next) => {
   
@@ -68,3 +69,31 @@ exports.saveFormateur = (req, res, next) => {
           })
           .catch((error) => { console.log(error) });
   }
+
+  exports.addFormateurForFormation = (req,res,next) => {
+    const formationId =  req.params.id;
+    const formateurObject =  req.body;
+    const newFormateur = new Formateur(formateurObject);
+  
+    Formation.findOne({ _id: formationId },  (err, foundFormation) => {
+      if (!foundFormation) {
+        return err;
+      }
+      foundFormation.formateur.push(newFormateur);
+      newFormateur.formation = foundFormation;
+      newFormateur.save((error, savedFormateur) => {
+        if (error) {
+          return error;
+        }
+        return res.json(savedFormateur);
+      });
+      foundFormation.save((error, savedFormation) => {
+        if (error) {
+          return error;
+        }
+        return res.json(savedFormation); 
+      });
+      return foundFormation;
+    });
+}
+

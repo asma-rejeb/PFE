@@ -3,9 +3,20 @@ const Formation =require("../models/formation");
 exports.saveFormation = (req, res, next) => {
   
 
-    const formation = new Formation(
-         req.body
-   );
+    const formation = new Formation({
+      titre: req.body.titre,
+      specialite: req.body.specialite,
+      type: req.body.type,
+      niveau: req.body.niveau,
+      dateDebut: req.body.dateDebut,
+      dateFin: req.body.dateFin,
+      horaire: req.body.horaire,
+      duree: req.body.duree,
+      prix: req.body.prix,
+      nbrStagiaire: req.body.nbrStagiaire,
+      
+    });
+
     formation
       .save()
       .then(result => {
